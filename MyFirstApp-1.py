@@ -19,11 +19,11 @@ fact_chain = fact_prompt | gemini_model
 import streamlit as st
 st.header("Book Summary")
 
-st.subheader("Top key takeaways from your favourite book")
+st.subheader("Top takeaways from your favourite book")
 
 book_name = st.text_input("Book name")
 
-number_of_key_takeaways = st.number_input("Number of key takeaways",min_value =1,max_value = 20, value = 1, step = 1 )
+number_of_key_takeaways = st.number_input("Number of takeaways",min_value =1,max_value = 20, value = 1, step = 1 )
 
 if st.button("Get the summary"):
     book_summary = fact_chain.invoke({"book_name": book_name, "number_of_key_takeaways" : number_of_key_takeaways, })   
